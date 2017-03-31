@@ -61,7 +61,7 @@ func TestImageIndex(t *testing.T) {
         "architecture": "amd64",
         "os": "linux",
         "features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }
@@ -84,7 +84,7 @@ func TestImageIndex(t *testing.T) {
         "architecture": "amd64",
         "os": "linux",
         "features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }
@@ -128,7 +128,7 @@ func TestImageIndex(t *testing.T) {
         "architecture": "amd64",
         "os": "linux",
         "features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }
@@ -152,7 +152,7 @@ func TestImageIndex(t *testing.T) {
         "architecture": "amd64",
         "os": "linux",
         "features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }
@@ -185,7 +185,7 @@ func TestImageIndex(t *testing.T) {
         "architecture": "amd64",
         "os": "linux",
         "features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }

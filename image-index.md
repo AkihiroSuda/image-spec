@@ -55,19 +55,29 @@ For the media type(s) that this document is compatible with, see the [matrix][ma
 
     - **`os.version`** *string*
 
-        This OPTIONAL property specifies the operating system version, for example `10.0.10586`.
+        This OPTIONAL property specifies the operating system version.
+        Image indexes SHOULD use, and implementations SHOULD understand the following convention:
+        - `windows`: `sprintf("%d.%d.%d", dwMajorVersion, dwMinorVersion, dwBuildNumber)` with the fields of the `OSVERSIONINFOEX` structure returned by `GetVersionEx()`. e.g., `10.0.10586`.
+        If an operating system is not listed here, it SHOULD be submitted to this specification for standardization.
 
     - **`os.features`** *array of strings*
 
         This OPTIONAL property specifies an array of strings, each specifying a mandatory OS feature (for example on Windows `win32k`).
+        A convention for other features SHOULD be submitted to this specification for standardization.
 
     - **`variant`** *string*
 
-        This OPTIONAL property specifies the variant of the CPU, for example `armv6l` to specify a particular CPU variant of the ARM CPU.
+        This OPTIONAL property specifies the variant of the CPU.
+        Image indexes SHOULD use, and implementations SHOULD understand the following convention:
+        - `arm` and `arm64`: `machine` field of the Linux `utsname` structure returned by `uname(2)`. e.g., `armv6l`.
+        If an architecture is not listed here, it SHOULD be submitted to this specification for standardization.
 
     - **`features`** *array of strings*
 
-        This OPTIONAL property specifies an array of strings, each specifying a mandatory CPU feature (for example `sse4` or `aes`).
+        This OPTIONAL property specifies an array of strings, each specifying a mandatory CPU feature.
+        Image indexes SHOULD use, and implementations SHOULD understand the following convention:
+        - `386` and `amd64`: `flags` entries of the Linux `/proc/cpuinfo`. e.g., `sse4_2` or `aes`.
+        If an architecture is not listed here, it SHOULD be submitted to this specification for standardization.
 
 - **`annotations`** *string-string map*
 
@@ -100,7 +110,7 @@ For the media type(s) that this document is compatible with, see the [matrix][ma
         "architecture": "amd64",
         "os": "linux",
         "os.features": [
-          "sse4"
+          "sse4_2"
         ]
       }
     }
