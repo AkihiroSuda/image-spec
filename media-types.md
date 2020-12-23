@@ -38,13 +38,21 @@ This section shows where the OCI Image Specification is compatible with formats 
 
 **Similar/related schema**
 
-- [application/vnd.docker.distribution.manifest.list.v2+json](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) - mediaType is different
+- [application/vnd.docker.distribution.manifest.list.v2+json](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list)
+  - `.mediaType`: only present on Docker
+  - `.annotations`: only present on OCI
+  - `.[]manifests.annotations`: only present on OCI
+  - `.[]manifests.platform`: ARM v6 is represented as `{"architecture":"arm","variant":"v6"}` on OCI, while represented as `{"variant:armv6l"}` on Docker
 
 ### application/vnd.oci.image.manifest.v1+json
 
 **Similar/related schema**
 
 - [application/vnd.docker.distribution.manifest.v2+json](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#image-manifest-field-descriptions)
+  - `.mediaType`: only present on Docker
+  - `.annotations`: only present on OCI
+  - `.config.annotations`: only present on OCI
+  - `.[]layers.annotations`: only present on OCI
 
 ### application/vnd.oci.image.layer.v1.tar+gzip
 
